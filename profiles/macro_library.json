@@ -1,0 +1,138 @@
+[
+    {
+        "name": "Sút Lắc Đổi Hướng (Knuckle Shot)",
+        "description": "Bấm Sút (Num 2 - 0.20s) ➔ Nhắp Sút lần 2 (Num 2 - 0.05s) tạo đường bay chao đảo ngặt nghèo.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.2,
+                "post_delay": 0.35
+            },
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.05,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Super Cancel Nâng Cao (Tap X ➔ RB+RT)",
+        "description": "Nhắp X hủy lệnh sút/chuyền ➔ Nhấn giữ combo RB+RT để di chuyển tự do cắt mặt.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.04,
+                "post_delay": 0.04
+            },
+            {
+                "action": "combo",
+                "keys": [
+                    "num0",
+                    "num1"
+                ],
+                "hold_duration": 0.15,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Sút Má Trong (Hold X 0.35s ➔ RT)",
+        "description": "Tích lực Sút 0.35s ➔ Nhấn RT vuốt bóng cứa lòng góc xa.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.35,
+                "post_delay": 0.03
+            },
+            {
+                "action": "tap",
+                "key": "num1",
+                "hold_duration": 0.15,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Giả Sút (Tap X ➔ A)",
+        "description": "Bấm Sút ➔ Hủy lập tức bằng Chuyền ngắn qua chân trụ làm lỡ đà hậu vệ.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.04,
+                "post_delay": 0.04
+            },
+            {
+                "action": "tap",
+                "key": "numdel",
+                "hold_duration": 0.05,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Chip Shot Nâng Cao (Tap X ➔ RB)",
+        "description": "Tích lực Sút nhẹ ➔ Bấm RB bấm bóng bổng qua đầu thủ môn.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "tap",
+                "key": "num2",
+                "hold_duration": 0.05,
+                "post_delay": 0.04
+            },
+            {
+                "action": "tap",
+                "key": "num0",
+                "hold_duration": 0.15,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Bật Tường Nhanh 1-2 (LB+A ➔ Y)",
+        "description": "Đập nhả bật tường 1-2 dâng cao trung lộ rồi chọc khe xé nát hàng thủ.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "combo",
+                "keys": [
+                    "rctrl",
+                    "numdel"
+                ],
+                "hold_duration": 0.12,
+                "post_delay": 0.15
+            },
+            {
+                "action": "tap",
+                "key": "num5",
+                "hold_duration": 0.15,
+                "post_delay": 0.05
+            }
+        ]
+    },
+    {
+        "name": "Chọc Khe Bổng Kỹ Thuật (LB+Y)",
+        "description": "Phất bóng bổng chuẩn xác vượt tuyến cho tiền đạo cắm bứt tốc.",
+        "type": "sequence",
+        "sequence": [
+            {
+                "action": "combo",
+                "keys": [
+                    "rctrl",
+                    "num5"
+                ],
+                "hold_duration": 0.2,
+                "post_delay": 0.05
+            }
+        ]
+    }
+]

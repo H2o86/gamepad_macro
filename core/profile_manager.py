@@ -49,6 +49,72 @@ def get_default_player_mapping(is_pes6: bool = True) -> dict:
             "dpad_right": {"name": "Di chuyển Phải", "type": "single", "key": "right", "mode": "tap"}
         }
 
+def get_default_macro_library() -> list[dict]:
+    return [
+        {
+            "name": "Sút Lắc Đổi Hướng (Knuckle Shot)",
+            "description": "Bấm Sút (Num 2 - 0.20s) ➔ Nhắp Sút lần 2 (Num 2 - 0.05s) tạo đường bay chao đảo ngặt nghèo.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "tap", "key": "num2", "hold_duration": 0.20, "post_delay": 0.35},
+                {"action": "tap", "key": "num2", "hold_duration": 0.05, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Super Cancel Nâng Cao (Tap X ➔ RB+RT)",
+            "description": "Nhắp X hủy lệnh sút/chuyền ➔ Nhấn giữ combo RB+RT để di chuyển tự do cắt mặt.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "tap", "key": "num2", "hold_duration": 0.04, "post_delay": 0.04},
+                {"action": "combo", "keys": ["num0", "num1"], "hold_duration": 0.15, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Sút Má Trong (Hold X 0.35s ➔ RT)",
+            "description": "Tích lực Sút 0.35s ➔ Nhấn RT vuốt bóng cứa lòng góc xa.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "tap", "key": "num2", "hold_duration": 0.35, "post_delay": 0.03},
+                {"action": "tap", "key": "num1", "hold_duration": 0.15, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Giả Sút (Tap X ➔ A)",
+            "description": "Bấm Sút ➔ Hủy lập tức bằng Chuyền ngắn qua chân trụ làm lỡ đà hậu vệ.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "tap", "key": "num2", "hold_duration": 0.04, "post_delay": 0.04},
+                {"action": "tap", "key": "numdel", "hold_duration": 0.05, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Chip Shot Nâng Cao (Tap X ➔ RB)",
+            "description": "Tích lực Sút nhẹ ➔ Bấm RB bấm bóng bổng qua đầu thủ môn.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "tap", "key": "num2", "hold_duration": 0.05, "post_delay": 0.04},
+                {"action": "tap", "key": "num0", "hold_duration": 0.15, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Bật Tường Nhanh 1-2 (LB+A ➔ Y)",
+            "description": "Đập nhả bật tường 1-2 dâng cao trung lộ rồi chọc khe xé nát hàng thủ.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "combo", "keys": ["rctrl", "numdel"], "hold_duration": 0.12, "post_delay": 0.15},
+                {"action": "tap", "key": "num5", "hold_duration": 0.15, "post_delay": 0.05}
+            ]
+        },
+        {
+            "name": "Chọc Khe Bổng Kỹ Thuật (LB+Y)",
+            "description": "Phất bóng bổng chuẩn xác vượt tuyến cho tiền đạo cắm bứt tốc.",
+            "type": "sequence",
+            "sequence": [
+                {"action": "combo", "keys": ["rctrl", "num5"], "hold_duration": 0.20, "post_delay": 0.05}
+            ]
+        }
+    ]
+
 def create_default_8player_profile(name: str, is_pes6: bool = True) -> dict:
     players = {}
     for p in range(1, 9):
@@ -304,3 +370,56 @@ class ProfileManager:
 
     def copy_player1_to_all(self):
         return self.copy_player_mappings(1, 0)
+
+    # -------------------------------------------------------------
+    # Macro Library Persistence
+    # -------------------------------------------------------------
+    def get_macro_library_filepath(self) -> str:
+        return os.path.join(self.profiles_dir, "macro_library.json")
+
+    def get_macro_library(self) -> list[dict]:
+        filepath = self.get_macro_library_filepath()
+        if os.path.exists(filepath):
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    if isinstance(data, list) and len(data) > 0:
+                        return data
+            except Exception as e:
+                print("Error reading macro library:", e)
+        
+        # Default initialization
+        default_lib = get_default_macro_library()
+        self.save_macro_library(default_lib)
+        return default_lib
+
+    def save_macro_library(self, library_list: list[dict]):
+        filepath = self.get_macro_library_filepath()
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(library_list, f, ensure_ascii=False, indent=4)
+        except Exception as e:
+            print("Error saving macro library:", e)
+
+    def add_macro_to_library(self, macro_data: dict) -> bool:
+        lib = self.get_macro_library()
+        lib.append(macro_data)
+        self.save_macro_library(lib)
+        return True
+
+    def update_macro_in_library(self, index: int, macro_data: dict) -> bool:
+        lib = self.get_macro_library()
+        if 0 <= index < len(lib):
+            lib[index] = macro_data
+            self.save_macro_library(lib)
+            return True
+        return False
+
+    def delete_macro_from_library(self, index: int) -> bool:
+        lib = self.get_macro_library()
+        if 0 <= index < len(lib):
+            lib.pop(index)
+            self.save_macro_library(lib)
+            return True
+        return False
+

@@ -16,6 +16,8 @@ from core.input_simulator import InputSimulator
 from core.game_detector import GameDetector
 from core.update_checker import UpdateCheckerThread
 from gui.update_dialog import UpdateDialog
+from gui.macro_editor_dialog import MacroEditorDialog
+from gui.macro_library_dialog import MacroLibraryDialog
 from version import APP_VERSION
 import sys
 
@@ -454,6 +456,13 @@ class MainWindow(QMainWindow):
         btn_backup_menu.setMenu(menu_backup)
         profile_layout.addWidget(btn_backup_menu)
 
+        # Dedicated Macro Library Manager Button
+        btn_lib_mgr = QPushButton("📚 Thư viện Macro")
+        btn_lib_mgr.setObjectName("btn_secondary")
+        btn_lib_mgr.setToolTip("Quản lý & Biên soạn Tuyệt chiêu Macro trong thư viện (Tối đa 8 phím)")
+        btn_lib_mgr.clicked.connect(self._open_macro_library_dialog)
+        profile_layout.addWidget(btn_lib_mgr)
+
         # Check Update Button
         self.btn_update = QPushButton(f"🚀 Cập nhật (v{APP_VERSION})")
         self.btn_update.setObjectName("btn_secondary")
@@ -754,11 +763,16 @@ class MainWindow(QMainWindow):
         for player_id, tab in self.player_tabs.items():
             tab.update_dpad_buttons_text()
 
+    def _open_macro_library_dialog(self):
+        dialog = MacroLibraryDialog(self.profile_manager, self.gamepad_listener, self)
+        dialog.exec()
+        self._update_all_player_tabs_text()
+
     def _open_macro_editor(self, player_id: int, dpad_dir: str):
         mapping = self.profile_manager.get_player_dpad_mapping(player_id, dpad_dir)
         dialog = MacroEditorDialog(player_id, dpad_dir, mapping, self.gamepad_listener, self)
         if dialog.exec():
-            new_map = dialog.get_result()
+            new_map = dialog.get_result_mapping()
             self.profile_manager.update_player_dpad_mapping(player_id, dpad_dir, new_map)
             self.player_tabs[player_id].update_dpad_buttons_text()
 
