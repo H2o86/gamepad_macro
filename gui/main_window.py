@@ -17,7 +17,11 @@ from core.game_detector import GameDetector
 from gui.macro_editor_dialog import MacroEditorDialog, DPAD_NAMES
 
 def create_tray_icon() -> QIcon:
-    """Generate a high-res crisp vector gamepad icon for Windows Taskbar."""
+    """Return high-res custom gamepad app icon for Taskbar & System Tray."""
+    icon_path = os.path.join("resources", "app_icon.png")
+    if os.path.exists(icon_path):
+        return QIcon(icon_path)
+
     pix = QPixmap(64, 64)
     pix.fill(Qt.transparent)
     painter = QPainter(pix)
