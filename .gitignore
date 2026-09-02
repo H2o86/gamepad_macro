@@ -7,3 +7,7 @@ venv/
 scratch/
 .idea/
 .vscode/
+build/
+dist/
+release/
+*.spec

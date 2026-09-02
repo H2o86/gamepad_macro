@@ -14,6 +14,9 @@ from core.gamepad_listener import GamepadListener
 from core.macro_engine import MacroEngine
 from core.input_simulator import InputSimulator
 from core.game_detector import GameDetector
+from core.update_checker import UpdateCheckerThread
+from gui.update_dialog import UpdateDialog
+from version import APP_VERSION
 import sys
 
 DPAD_NAMES = {
@@ -330,6 +333,7 @@ class MainWindow(QMainWindow):
         self._setup_system_tray()
         self._refresh_profiles_list()
         self._start_game_timer()
+        QTimer.singleShot(3000, lambda: self._check_for_updates(silent=True))
 
     def _init_ui(self):
         main_widget = QWidget()
@@ -449,6 +453,13 @@ class MainWindow(QMainWindow):
 
         btn_backup_menu.setMenu(menu_backup)
         profile_layout.addWidget(btn_backup_menu)
+
+        # Check Update Button
+        self.btn_update = QPushButton(f"🚀 Cập nhật (v{APP_VERSION})")
+        self.btn_update.setObjectName("btn_secondary")
+        self.btn_update.setToolTip("Kiểm tra phiên bản mới trên GitHub")
+        self.btn_update.clicked.connect(lambda: self._check_for_updates(silent=False))
+        profile_layout.addWidget(self.btn_update)
 
         profile_layout.addStretch()
 
@@ -789,3 +800,38 @@ class MainWindow(QMainWindow):
         self.tray_icon.hide()
         self.close()
         os._exit(0)
+
+    def _check_for_updates(self, silent: bool = False):
+        self.update_checker = UpdateCheckerThread(silent=silent)
+        self.update_checker.update_result.connect(self._on_update_result)
+        self.update_checker.start()
+
+    def _on_update_result(self, res: dict):
+        if res.get("has_update"):
+            latest_ver = res.get("latest_version", "")
+            self.btn_update.setText(f"🚀 Có bản mới ({latest_ver})!")
+            self.btn_update.setStyleSheet("""
+                QPushButton {
+                    background-color: #059669;
+                    color: #FFFFFF;
+                    font-weight: bold;
+                    border-radius: 6px;
+                    padding: 6px 12px;
+                }
+                QPushButton:hover {
+                    background-color: #10B981;
+                }
+            """)
+            dlg = UpdateDialog(self, res)
+            dlg.exec()
+        else:
+            if not res.get("silent"):
+                err = res.get("error")
+                if err:
+                    QMessageBox.warning(self, "Kiểm Tra Cập Nhật", f"Không thể kết nối máy chủ cập nhật:\n{err}")
+                else:
+                    QMessageBox.information(
+                        self,
+                        "Kiểm Tra Cập Nhật",
+                        f"Bạn đang sử dụng phiên bản mới nhất! (v{APP_VERSION})"
+                    )
