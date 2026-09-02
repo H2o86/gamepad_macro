@@ -231,6 +231,8 @@ class MacroEditorDialog(QDialog):
             "num0": "Nút RB / R1 (Sprint) ➔ [Num 0]",
             "rshift": "Nút LT / L2 (Chiến thuật) ➔ [Right Shift]",
             "num1": "Nút RT / R2 (Cứa lòng) ➔ [Num 1]",
+            "r": "Nút L3 / LS (Nhấn cần gạt trái) ➔ [Phím R]",
+            "t": "Nút R3 / RS (Nhấn cần gạt phải) ➔ [Phím T]",
             "g": "Nút Start / Pause ➔ [G]",
             "f": "Nút Select ➔ [F]"
         }

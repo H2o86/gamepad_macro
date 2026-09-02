@@ -6,22 +6,23 @@
             "device_index": 0,
             "dpad_mappings": {
                 "dpad_up": {
+                    "description": "Bấm Sút (Num 2 - 0.20s) ➔ Nhắp Sút lần 2 (Num 2 - 0.05s) tạo đường bay chao đảo ngặt nghèo.",
                     "name": "Sút Lắc Đổi Hướng (Knuckle Shot)",
-                    "type": "sequence",
                     "sequence": [
                         {
                             "action": "tap",
-                            "key": "num2",
                             "hold_duration": 0.2,
+                            "key": "num2",
                             "post_delay": 0.35
                         },
                         {
                             "action": "tap",
-                            "key": "num2",
                             "hold_duration": 0.05,
+                            "key": "num2",
                             "post_delay": 0.05
                         }
-                    ]
+                    ],
+                    "type": "sequence"
                 },
                 "dpad_down": {
                     "name": "Super Cancel Nâng Cao (Tap X ➔ RB+RT)",

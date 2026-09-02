@@ -21,6 +21,8 @@ XBOX_BUTTON_MAP = [
     {"name": "🎮 Nút RB / R1 (Chạy nhanh - Sprint) ➔ [Num 0]", "key": "num0"},
     {"name": "🎮 Nút LT / L2 (Chiến thuật - Special) ➔ [Right Shift]", "key": "rshift"},
     {"name": "🎮 Nút RT / R2 (Sút má trong / Kỹ thuật) ➔ [Num 1]", "key": "num1"},
+    {"name": "🕹️ Nút L3 / LS (Nhấn cần gạt Trái) ➔ [Phím R]", "key": "r"},
+    {"name": "🕹️ Nút R3 / RS (Nhấn cần gạt Phải) ➔ [Phím T]", "key": "t"},
     {"name": "🎮 Nút Start / Options ➔ [G]", "key": "g"},
     {"name": "🎮 Nút Back / Share / Select ➔ [F]", "key": "f"},
     {"name": "⌨️ Bàn phím: Phím W ➔ [W]", "key": "w"},
@@ -516,6 +518,8 @@ class MacroLibraryDialog(QDialog):
             5: "num0",   # RB / R1
             6: "rshift", # LT / L2
             7: "num1",   # RT / R2
+            8: "r",      # L3 / LS
+            9: "t",      # R3 / RS
         }
         key_code = btn_key_map.get(button_idx, "num2")
         step_data = {
