@@ -4,7 +4,7 @@ import json
 import urllib.request
 import urllib.error
 from PySide6.QtCore import QThread, Signal
-from version import APP_VERSION, GITHUB_RELEASES_URL
+from version import APP_VERSION, GITHUB_RELEASES_URL, GITHUB_REPO
 
 def parse_version_tuple(ver_str: str) -> tuple:
     """Parse version string like 'v1.0.1' or '1.2.0' into numeric tuple (1, 0, 1)."""
@@ -34,14 +34,6 @@ class UpdateCheckerThread(QThread):
                 headers={"User-Agent": "PES6-Gamepad-Macro-Manager-Updater"}
             )
             with urllib.request.urlopen(req, timeout=10) as resp:
-                if resp.status != 200:
-                    self.update_result.emit({
-                        "has_update": False,
-                        "error": f"HTTP Error {resp.status}",
-                        "silent": self.silent
-                    })
-                    return
-
                 data = json.loads(resp.read().decode("utf-8"))
                 tag_name = data.get("tag_name", "")
                 release_notes = data.get("body", "Không có thông tin chi tiết phiên bản.")
@@ -78,10 +70,29 @@ class UpdateCheckerThread(QThread):
                     "error": None,
                     "silent": self.silent
                 })
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                # 404 HTTP Error means no GitHub Release has been created on GitHub web yet -> Current version is up-to-date!
+                self.update_result.emit({
+                    "has_update": False,
+                    "latest_version": "v" + APP_VERSION,
+                    "current_version": "v" + APP_VERSION,
+                    "release_notes": "Bạn đang sử dụng phiên bản mới nhất.",
+                    "download_url": "",
+                    "html_url": f"https://github.com/{GITHUB_REPO}/releases",
+                    "error": None,
+                    "silent": self.silent
+                })
+            else:
+                self.update_result.emit({
+                    "has_update": False,
+                    "error": f"Lỗi máy chủ GitHub (HTTP {e.code})",
+                    "silent": self.silent
+                })
         except Exception as e:
             self.update_result.emit({
                 "has_update": False,
-                "error": str(e),
+                "error": f"Lỗi kết nối: {e}",
                 "silent": self.silent
             })
 
