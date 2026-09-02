@@ -16,6 +16,17 @@ from core.input_simulator import InputSimulator
 from core.game_detector import GameDetector
 import sys
 
+DPAD_NAMES = {
+    "dpad_up": "D-Pad Lên (Up)",
+    "dpad_down": "D-Pad Xuống (Down)",
+    "dpad_left": "D-Pad Trái (Left)",
+    "dpad_right": "D-Pad Phải (Right)",
+    "up": "D-Pad Lên (Up)",
+    "down": "D-Pad Xuống (Down)",
+    "left": "D-Pad Trái (Left)",
+    "right": "D-Pad Phải (Right)"
+}
+
 def get_resource_path(relative_path: str) -> str:
     if getattr(sys, 'frozen', False):
         base_path = getattr(sys, '_MEIPASS', os.getcwd())
