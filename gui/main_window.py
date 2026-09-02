@@ -14,11 +14,18 @@ from core.gamepad_listener import GamepadListener
 from core.macro_engine import MacroEngine
 from core.input_simulator import InputSimulator
 from core.game_detector import GameDetector
-from gui.macro_editor_dialog import MacroEditorDialog, DPAD_NAMES
+import sys
+
+def get_resource_path(relative_path: str) -> str:
+    if getattr(sys, 'frozen', False):
+        base_path = getattr(sys, '_MEIPASS', os.getcwd())
+    else:
+        base_path = os.getcwd()
+    return os.path.join(base_path, relative_path)
 
 def create_tray_icon() -> QIcon:
     """Return high-res custom gamepad app icon for Taskbar & System Tray."""
-    icon_path = os.path.join("resources", "app_icon.png")
+    icon_path = get_resource_path(os.path.join("resources", "app_icon.png"))
     if os.path.exists(icon_path):
         return QIcon(icon_path)
 

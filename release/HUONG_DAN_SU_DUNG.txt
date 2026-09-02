@@ -1,0 +1,18 @@
+=============================================================
+🎮 PES6 GAMEPAD MACRO MANAGER v1.0 (Windows Portable Executable)
+=============================================================
+
+HƯỚNG DẪN SỬ DỤNG DÀNH CHO NGƯỜI DÙNG CUỐI:
+1. Nhấp đôi chuột trực tiếp vào file 'PES6_Gamepad_Macro_Manager.exe' để sử dụng.
+2. KHÔNG CẦN cài đặt Python hay bất kỳ thư viện trung gian nào.
+3. KHÔNG CẦN mở ứng dụng bằng quyền Administrator.
+4. KHÔNG CẦN gỡ hay xóa cài đặt phím D-Pad trong Settings.exe của PES6.
+5. Cắm tay cầm bất kỳ (Xbox 360/One/Series, PS4 DualShock 4, PS5 DualSense, Flydigi...) và thi đấu!
+
+TÍNH NĂNG NỔI BẬT:
+- Quản lý & gán Macro độc lập cho cả 8 Người chơi (P1 -> P8).
+- Bộ Preset tuyệt chiêu PES6 nâng cao: Knuckle Shot, Super Cancel, Sút má trong, Chip Shot.
+- Chỉnh sửa trực tiếp thời gian Giữ phím (lấy lực sút) và Chờ giữa các bước.
+- Lưu & khôi phục Profile cá nhân/tổng thể.
+
+=============================================================
