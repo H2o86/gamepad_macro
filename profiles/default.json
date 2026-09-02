@@ -1,0 +1,26 @@
+{
+    "name": "Default Profile",
+    "description": "Cấu hình phím D-Pad cho hệ thống Windows (Điều khiển Media / Phím tắt)",
+    "dpad_mappings": {
+        "dpad_up": {
+            "type": "single",
+            "key": "up",
+            "mode": "tap"
+        },
+        "dpad_down": {
+            "type": "single",
+            "key": "down",
+            "mode": "tap"
+        },
+        "dpad_left": {
+            "type": "single",
+            "key": "left",
+            "mode": "tap"
+        },
+        "dpad_right": {
+            "type": "single",
+            "key": "right",
+            "mode": "tap"
+        }
+    }
+}

@@ -1,0 +1,374 @@
+{
+    "name": "tournament_pes_2026",
+    "description": "Profile 8 Người chơi (PES6 Profile)",
+    "players": {
+        "1": {
+            "device_index": 0,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Sút Đổi Hướng (Knuckle)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.35
+                        },
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Bật Tường (One-Two Pass)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "numdel"
+                    ]
+                }
+            }
+        },
+        "2": {
+            "device_index": 1,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "3": {
+            "device_index": 2,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "4": {
+            "device_index": 3,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "5": {
+            "device_index": 4,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "6": {
+            "device_index": 5,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "7": {
+            "device_index": 6,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        },
+        "8": {
+            "device_index": 7,
+            "dpad_mappings": {
+                "dpad_up": {
+                    "name": "Giả Sút (Fake Shot)",
+                    "type": "sequence",
+                    "sequence": [
+                        {
+                            "action": "tap",
+                            "key": "num2",
+                            "post_delay": 0.04
+                        },
+                        {
+                            "action": "tap",
+                            "key": "numdel",
+                            "post_delay": 0.05
+                        }
+                    ]
+                },
+                "dpad_down": {
+                    "name": "Super Cancel (RB + RT)",
+                    "type": "combo",
+                    "keys": [
+                        "num0",
+                        "num1"
+                    ]
+                },
+                "dpad_left": {
+                    "name": "Bấm Bóng Chip Shot (LB + X)",
+                    "type": "combo",
+                    "keys": [
+                        "rctrl",
+                        "num2"
+                    ]
+                },
+                "dpad_right": {
+                    "name": "Sút Má Trong Finesse (RT + X)",
+                    "type": "combo",
+                    "keys": [
+                        "num1",
+                        "num2"
+                    ]
+                }
+            }
+        }
+    }
+}
